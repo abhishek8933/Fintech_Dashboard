@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import PieChart from './DeepVueTech/PieChart/PieChart'
+import BarChart from './DeepVueTech/AverageEOD/AverageEOD'
+import Highest from './DeepVueTech/Highest/Highest'
+import Summary from './DeepVueTech/Summary/Summary'
+import Saving from './DeepVueTech/SavingAnalysis/Saving'
+import { BrowserRouter, Route,Routes } from "react-router-dom";
+import { Bar } from 'react-chartjs-2'
+
+const App = () => {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <BrowserRouter basename="/">
+      <Routes>
+      {/* <Route path='/' element={<NavbarComponent/>}/> */}
+        <Route path='/saving' element={<Saving/>}/>
+        <Route path='/summary' element={<Summary/>}/>
+        <Route path='/highest' element={<Highest/>}/>
+        <Route path='/pie' element={<PieChart/>}/>
+        <Route path='/bar' element={<BarChart/>}/>
+      </Routes>
+    </BrowserRouter>
+      {/* <Saving/> */}
+      {/* <Summary/> */}
+      {/* <Highest/> */}
+      {/* <PieChart/> */}
+      {/* <BarChart/> */}
+    </>
+  )
 }
 
-export default App;
+export default App
